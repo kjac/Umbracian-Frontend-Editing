@@ -1,0 +1,20 @@
+#leftcolumn {
+  display: none;
+}
+#contentwrapper, .umb-bottom-bar {
+  left: 0 !important;
+}
+.umb-panel-header .btn-toolbar , .umb-panel-footer-nav {
+  display: none;
+}
+.umb-panel.editor-breadcrumb .umb-panel-body, .umb-panel.editor-breadcrumb .umb-bottom-bar {
+  bottom: 0 !important;
+}
+/* hide preview button */
+.umb-tab-buttons.umb-bottom-bar .btn-group .btn {
+  display: none;
+}
+/* show save button */
+.umb-tab-buttons.umb-bottom-bar .btn-group .btn.btn-success {
+  display: inline-block;
+}

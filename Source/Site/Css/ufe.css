@@ -1,0 +1,178 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('/umbraco/assets/fonts/helveticons/helveticons.eot');
+	src:url('/umbraco/assets/fonts/helveticons/helveticons.eot?#iefix') format('embedded-opentype'),
+		url('/umbraco/assets/fonts/helveticons/helveticons.ttf') format('truetype'),
+		url('/umbraco/assets/fonts/helveticons/helveticons.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.ufe_control {
+  z-index: 2002;
+  position: fixed;
+  left: 100%;
+  top: 0px;
+  margin: 4px 0 0 -30px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: block;
+  background-repeat: no-repeat;
+  /*background-color: #D47920;*/
+  background-color: transparent;
+  padding: 2px;
+  font-family: icomoon;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  -webkit-font-smoothing: antialiased;
+  *margin-right: .3em;
+  font-size: 26px;
+  color: #AAA;
+  text-decoration: inherit;
+  display: inline-block;
+  speak: none;
+}
+
+.ufe_control.ufe_hidden {
+  display: none;
+}
+
+.ufe_control:hover, .ufe_control.ufe_open, .ufe_control.ufe_busy {
+  color: #444;
+}
+
+.ufe_control.ufe_restricted, 
+.ufe_control.ufe_restricted:hover, 
+.ufe_control.ufe_disabled,
+.ufe_control.ufe_disabled:hover {
+  color: #DDD;
+  cursor: default;
+}
+
+#ufe_edit:before {
+	content: "\e1c2";
+}
+
+#ufe_login:before {
+	content: "\e13f";
+}
+
+#ufe_logout:before {
+	content: "\e13f";
+}
+
+#ufe_create:before {
+  content: "\e11b";
+}
+
+#ufe_unpublish:before {
+  content: "\e230";
+}
+
+#ufe_delete:before {
+  content: "\e032";
+}
+
+#ufe_login.ufe_busy:before, #ufe_edit.ufe_busy:before, #ufe_create.ufe_busy:before, #ufe_unpublish.ufe_busy:before, #ufe_delete.ufe_busy:before, #ufe_logout.ufe_busy:before {
+  content: "\e153";
+}
+
+#ufe_create {
+  top: 30px;
+}
+
+#ufe_unpublish {
+  top: 60px;
+}
+
+#ufe_delete {
+  top: 90px;
+}
+
+#ufe_logout {
+  top: 120px;
+}
+
+#ufe_frame {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  display: none;
+  z-index: 2000;
+}
+
+.ufe_panel {
+  z-index: 2001;
+  position: fixed;
+  left: 100%;
+  top: 0px;
+  margin: 0 0 0 -200px;
+  width: 200px;
+  padding: 0;
+  display: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-top: 0;
+  border-right: 0;
+  padding: 30px 8px 8px 8px;
+  line-height: 16px;
+  font-family: 'Segoe UI',Tahoma,Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  color: #444;
+}
+.ufe_panel input, .ufe_panel select, .ufe_panel button, .ufe_panel p {
+  display: block;
+  width: 160px;
+  margin: 4px 0 0 0;
+  padding: 8px;
+  font-family: inherit;
+  font-size: inherit;
+}
+.ufe_panel input.ufe_invalid {
+  color: #F00;
+}
+.ufe_panel p {
+  padding: 0px 0px 8px 0px;
+}
+.ufe_panel p .attention {
+  font-weight: bold;
+}
+.ufe_panel button {
+  cursor: pointer;
+  color: #fff;
+  border: 0;
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: #AAA;
+  width: 78px;
+}
+.ufe_panel button:hover {
+  background-color: #666;
+}
+.ufe_panel button:active {
+  background-color: #444;
+}
+
+button#ufe_createcontent, button#ufe_login {
+  background-color: #0E0;
+}
+button#ufe_createcontent:hover, button#ufe_login:hover {
+  background-color: #0D0;
+}
+button#ufe_createcontent:active, button#ufe_login:active {
+  background-color: #0C0;
+}
+
+button#ufe_deletecontent {
+  background-color: #F00;
+}
+button#ufe_deletecontent:hover {
+  background-color: #E00;
+}
+button#ufe_deletecontent:active {
+  background-color: #D00;
+}

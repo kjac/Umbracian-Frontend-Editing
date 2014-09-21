@@ -1,0 +1,18 @@
+{
+  propertyEditors: [
+    {
+      alias: "Umbracian.FrontendEditing",
+      name:  "Umbracian frontend editing",
+      editor: {
+        view: "~/App_Plugins/Umbracian.FrontendEditing/views/frontendediting.html",
+        valueType: "JSON",
+      },
+      prevalues: {
+        fields: []
+      }
+    }
+  ],
+  javascript: [
+    '~/App_Plugins/Umbracian.FrontendEditing/js/frontendediting.js'
+  ]
+}

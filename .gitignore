@@ -1,0 +1,19 @@
+syntax: glob
+*.bak
+*.dll
+*.lock
+*.orig
+*.pdb
+*.suo
+*.user
+*.xml
+*/Cached/*
+.DS_Store
+.hgcheck
+.sass-cache
+.svn
+_ReSharper*
+bin/
+obj/
+Source/Solution/packages/
+*.cmd
