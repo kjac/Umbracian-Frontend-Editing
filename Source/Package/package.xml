@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>ufe.js</guid>
+      <orgPath>/js</orgPath>
+      <orgName>ufe.js</orgName>
+    </file>
+    <file>
+      <guid>Umbracian.FrontendEditing.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>Umbracian.FrontendEditing.dll</orgName>
+    </file>
+    <file>
+      <guid>ufe.css</guid>
+      <orgPath>/Css</orgPath>
+      <orgName>ufe.css</orgName>
+    </file>
+    <file>
+      <guid>package.manifest</guid>
+      <orgPath>/App_Plugins/Umbracian.FrontendEditing</orgPath>
+      <orgName>package.manifest</orgName>
+    </file>
+    <file>
+      <guid>frontendediting.css</guid>
+      <orgPath>/App_Plugins/Umbracian.FrontendEditing/css</orgPath>
+      <orgName>frontendediting.css</orgName>
+    </file>
+    <file>
+      <guid>frontendediting.js</guid>
+      <orgPath>/App_Plugins/Umbracian.FrontendEditing/js</orgPath>
+      <orgName>frontendediting.js</orgName>
+    </file>
+    <file>
+      <guid>frontendediting.html</guid>
+      <orgPath>/App_Plugins/Umbracian.FrontendEditing/views</orgPath>
+      <orgName>frontendediting.html</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>Umbracian Frontend Editing</name>
+      <version>0.1.0.3</version>
+      <license url="http://opensource.org/licenses/MIT">MIT License</license>
+      <url>http://our.umbraco.org/projects/website-utilities/frontend-editing</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Kenn Jacobsen</name>
+      <website>http://kennjacobsen.dk</website>
+    </author>
+    <readme><![CDATA[]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates>
+    <Template>
+      <Name>Edit</Name>
+      <Alias>Edit</Alias>
+      <Design><![CDATA[@using Umbraco.Web;
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+  Layout = null;
+}
+@{
+  Umbracian.FrontendEditing.Helper.Begin();
+  Umbracian.FrontendEditing.Helper.RedirectToSelf();
+}]]></Design>
+    </Template>
+  </Templates>
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes>
+    <DataType Name="Frontend editable" Id="Umbracian.FrontendEditing" Definition="3da45aad-31cb-463b-ab66-467a2af9e9ad" DatabaseType="Ntext">
+      <PreValues />
+    </DataType>
+  </DataTypes>
+</umbPackage>
