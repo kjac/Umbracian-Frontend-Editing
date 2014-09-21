@@ -1,4 +1,10 @@
-syntax: glob
+[Dd]ebug/
+[Bb]uild/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Pp]ackages/
+
 *.bak
 *.dll
 *.lock
@@ -7,13 +13,7 @@ syntax: glob
 *.suo
 *.user
 *.xml
-*/Cached/*
-.DS_Store
-.hgcheck
-.sass-cache
-.svn
 _ReSharper*
-bin/
-obj/
-Source/Solution/packages/
+Source/Package
+Source/Site/*
 *.cmd
