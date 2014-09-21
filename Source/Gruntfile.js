@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   // Profile task execution --------------------------------------- //
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
         ]
       }
     },
-    
+
     // Minification and concatenation of Javascript --------------- //
     uglify: {
       package: {
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         stdout: true,
         verbosity: 'quiet',
         maxCpuCount: 4,
-		version: 4.0,
+        version: 4.0,
         buildParameters: {
           WarningLevel: 2,
           NoWarn: 1607
