@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\..\site\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -231,16 +231,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)..\site\bin"
-
-copy "$(TargetPath)" "$(SolutionDir)..\package"
-copy "$(SolutionDir)..\site\css\ufe.css" "$(SolutionDir)..\package"
-copy "$(SolutionDir)..\site\js\ufe.js" $(SolutionDir)..\package"
-copy "$(SolutionDir)..\site\app_plugins\umbracian.frontendediting\css\*" "$(SolutionDir)..\package"
-copy "$(SolutionDir)..\site\app_plugins\umbracian.frontendediting\js\*" "$(SolutionDir)..\package"
-copy "$(SolutionDir)..\site\app_plugins\umbracian.frontendediting\views\*" "$(SolutionDir)..\package"
-copy "$(SolutionDir)..\site\app_plugins\umbracian.frontendediting\package.manifest" "$(SolutionDir)..\package"
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,6 +5,8 @@
 [Oo]bj/
 [Pp]ackages/
 
+node_modules/
+
 *.bak
 *.dll
 *.lock
