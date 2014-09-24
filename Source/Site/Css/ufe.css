@@ -68,7 +68,7 @@
 }
 
 #ufe_unpublish:before {
-  content: "\e230";
+  content: "\e0f8";
 }
 
 #ufe_delete:before {
