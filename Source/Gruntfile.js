@@ -38,6 +38,14 @@ module.exports = function (grunt) {
       }
     },
 
+    cssmin: {
+      package: {
+        files: {
+          'Package/ufe.css': ['Site/css/ufe.css']
+        }
+      }
+    },
+
     // Build project file ----------------------------------------- //
     msbuild: {
       options: {
@@ -69,5 +77,5 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', ['msbuild:debug', 'copy:package']);
-  grunt.registerTask('package', ['msbuild:release', 'copy:package', 'uglify:package']);
+  grunt.registerTask('package', ['msbuild:release', 'copy:package', 'uglify:package', 'cssmin:package']);
 };
