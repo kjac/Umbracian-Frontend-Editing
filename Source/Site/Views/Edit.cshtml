@@ -5,5 +5,57 @@
 }
 @{
   Umbracian.FrontendEditing.Helper.Begin();
-  Umbracian.FrontendEditing.Helper.RedirectToSelf();
+  // OK so apparetly those pesky, clever browsers seem to cache redirects, so we have to render an actual page here
+  // and use JavaScript to redirect us back to the page we came from
 }
+<html>
+  <head>
+    <title>Please wait...</title>
+    <style>
+      @@font-face {
+        font-family: 'icomoon';
+        src:url('/umbraco/assets/fonts/helveticons/helveticons.eot');
+        src:url('/umbraco/assets/fonts/helveticons/helveticons.eot?#iefix') format('embedded-opentype'),
+            url('/umbraco/assets/fonts/helveticons/helveticons.ttf') format('truetype'),
+            url('/umbraco/assets/fonts/helveticons/helveticons.svg#icomoon') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+      body {
+        text-align: center;
+        margin-top: 60px;
+        font-family: 'Segoe UI',Tahoma,Arial,Helvetica,sans-serif;
+      }
+      .wait {
+        text-align: center;
+        font-family: icomoon;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 64px;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        -moz-border-radius: 50%; 
+        -webkit-border-radius: 50%; 
+        border-radius: 50%;
+        background: #f37022;
+        color: white;
+        display: inline-block;
+      } 
+      .wait:before {
+        content: "\e1c2";
+      }
+     
+    </style>
+    <script type="text/javascript">
+      location.assign("@UmbracoContext.Current.PublishedContentRequest.PublishedContent.Url");
+    </script>
+  </head>
+  <body>
+    <div class="wait"></div>
+    <p>
+      Please wait...
+    </p>
+  </body>
+</html>
