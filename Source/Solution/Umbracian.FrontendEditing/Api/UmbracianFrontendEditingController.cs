@@ -1,17 +1,30 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Web;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 using umbraco.BusinessLogic.Actions;
 using Umbraco.Core.Models;
 using Umbraco.Core.Models.Membership;
 using umbraco.interfaces;
+using Umbraco.Core.Security;
 using Umbraco.Web;
 using Umbraco.Web.Models;
 using Umbraco.Web.WebApi;
 
 namespace Umbracian.FrontendEditing.Api {
 	public class UmbracianFrontendEditingController : UmbracoApiController {
+		protected override void Initialize(HttpControllerContext controllerContext) {
+			// see http://issues.umbraco.org/issue/U4-6342#comment=67-19466 (from http://issues.umbraco.org/issue/U4-6332)
+			var http = new HttpContextWrapper(HttpContext.Current);
+			var ticket = http.GetUmbracoAuthTicket();
+			if (ticket != null) {
+				http.AuthenticateCurrentRequest(ticket, true);
+			}
+
+			base.Initialize(controllerContext);
+		}
 
 		[HttpPost]
 		public bool Login(LoginModel loginModel) {
