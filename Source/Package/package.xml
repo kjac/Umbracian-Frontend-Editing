@@ -40,7 +40,7 @@
   <info>
     <package>
       <name>Umbracian Frontend Editing</name>
-      <version>0.1.0.4</version>
+      <version>0.1.0.5</version>
       <license url="http://opensource.org/licenses/MIT">MIT License</license>
       <url>http://our.umbraco.org/projects/website-utilities/frontend-editing</url>
       <requirements>
