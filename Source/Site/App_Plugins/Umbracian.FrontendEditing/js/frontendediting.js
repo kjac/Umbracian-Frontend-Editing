@@ -16,4 +16,43 @@
       }, 200);
     }
   });
+  
+  $scope.previousPropertyAlias = null;
+
+  $scope.goToProperty = function(propertyAlias) {
+    var tab = _.find(editorState.current.tabs, function(tab) {
+      return _.find(tab.properties, function(property) {
+        return property.alias === propertyAlias;
+      }) != null;
+    });
+    if(tab != null) {
+      setTimeout(function () {
+        // yeah, it's jQuery... 
+        var tabElement = $("a[data-toggle='tab']")[editorState.current.tabs.indexOf(tab)];
+        if (tabElement) {
+          tabElement.click()
+        }
+        if($scope.previousPropertyAlias != null && $scope.previousPropertyAlias !== propertyAlias) {
+          $scope.highlightProperty($scope.previousPropertyAlias, true);
+        }
+        $scope.previousPropertyAlias = propertyAlias;
+        $scope.highlightProperty(propertyAlias, false);
+      }, 200);
+    }
+    else {
+      if($scope.previousPropertyAlias) {
+        $scope.highlightProperty($scope.previousPropertyAlias, true);
+        $scope.previousPropertyAlias = null;
+      }
+    }
+  }
+  
+  $scope.highlightProperty = function (propertyAlias, revert) {
+    var property = $("label[for='" + propertyAlias + "']").closest('.umb-property');
+    if (!property) {
+      return;
+    }
+    property.css("background-color", color);
+    property[0].scrollIntoView();
+  }
 });

@@ -176,3 +176,40 @@ button#ufe_deletecontent:hover {
 button#ufe_deletecontent:active {
   background-color: #D00;
 }
+
+.ufe_editable:hover {
+  transition: all 0.1s ease 0s;
+}
+.ufe_editable:hover {
+  box-shadow: 0 0 0 1px #AAA;
+}
+.ufe_editable .ufe_marker {
+  padding: 0 4px 0 0;
+  height: 24px;
+  margin: 4px;
+  display: block;
+  float: right;
+  cursor: pointer; 
+  color: #AAA;
+  overflow: hidden;
+}
+.ufe_editable .ufe_marker:after {
+  content: "\e1c2";
+  font-family: icomoon;
+  font-size: 20px;
+}
+
+.ufe_editable:hover .ufe_marker:hover {
+  color: #444;
+}
+
+.ufe_editable .ufe_marker .ufe_markerText {
+  font-size: 100%;
+  vertical-align: top;
+  margin-top: 25px;
+  display: inline-block;
+}
+.ufe_editable:hover .ufe_marker .ufe_markerText {
+  transition: all 0.1s ease 0s;
+  margin-top: 0;
+}

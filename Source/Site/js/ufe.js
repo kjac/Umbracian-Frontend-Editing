@@ -39,6 +39,7 @@ var ufe = {
 };
 
 ufe.LoadComplete = function() {
+  this.GoToProperty(this.PropertyAlias);
   this.Frame.slideDown(this.SlideDuration, function () {
     ufe.SetOpen();
     ufe.SetReady();
@@ -143,9 +144,24 @@ ufe.LoadStatus = function() {
 
 }
 
-ufe.ToggleFrame = function(element, url) {
-  var lastActive = this.Active;
+ufe.EditContent = function(propertyAlias) {
+  if (this.State.CanEdit == false) {
+    return;
+  }
+  if (this.Active.hasClass("ufe_busy") || this.Edit.hasClass("ufe_disabled")) {
+    return;
+  }
 
+  this.ToggleFrame(this.Edit, "/umbraco#/content/content/edit/" + this.PageId + "?ufe", propertyAlias);    
+}
+
+ufe.GoToProperty = function() {
+  this.Frame[0].contentWindow.angular.element("#Umbracian_FrontendEditing").scope().goToProperty(this.PropertyAlias);            
+}
+
+ufe.ToggleFrame = function(element, url, propertyAlias) {
+  this.PropertyAlias = propertyAlias;
+  
   this.SetActive(element);
   this.SetBusy();
 
@@ -161,12 +177,8 @@ ufe.ToggleFrame = function(element, url) {
     $.get(this.AuthenticationUrl(), function (data) {
       if (data == true) {
         // it the frame has already been loaded, just show it
-        //if (ufeFrame.attr("src") && lastActive == element) {
-        if (ufe.Frame.attr("src") == url) {
-          ufe.Frame.slideDown(ufe.SlideDuration, function () {
-            ufe.SetOpen();
-            ufe.SetReady();
-          });
+        if (ufe.Frame.attr("src") && ufe.Frame.attr("src").indexOf(url) == 0) {
+          ufe.LoadComplete();
         }
         else {
           // load the frame
