@@ -177,6 +177,9 @@ button#ufe_deletecontent:active {
   background-color: #D00;
 }
 
+.ufe_editable {
+  position: relative;
+}
 .ufe_editable:hover {
   transition: all 0.1s ease 0s;
 }
@@ -184,11 +187,12 @@ button#ufe_deletecontent:active {
   box-shadow: 0 0 0 1px #AAA;
 }
 .ufe_editable .ufe_marker {
-  padding: 0 4px 0 0;
-  height: 24px;
-  margin: 4px;
+  padding: 0 4px 0 4px;
+  height: 28px;
   display: block;
-  float: right;
+  position: absolute;
+  z-index: 1000;
+  right: 0;
   cursor: pointer; 
   color: #AAA;
   overflow: hidden;
@@ -199,8 +203,13 @@ button#ufe_deletecontent:active {
   font-size: 20px;
 }
 
+.ufe_editable:hover .ufe_marker {
+  color: #444;
+}
+
 .ufe_editable:hover .ufe_marker:hover {
   color: #444;
+  background-color: rgba(255,255,255,0.8);
 }
 
 .ufe_editable .ufe_marker .ufe_markerText {
@@ -209,7 +218,7 @@ button#ufe_deletecontent:active {
   margin-top: 25px;
   display: inline-block;
 }
-.ufe_editable:hover .ufe_marker .ufe_markerText {
+.ufe_editable:hover .ufe_marker:hover .ufe_markerText {
   transition: all 0.1s ease 0s;
   margin-top: 0;
 }

@@ -52,7 +52,7 @@
     if (!property) {
       return;
     }
-    property.css("background-color", color);
     property[0].scrollIntoView();
+    //property.effect("highlight");
   }
 });
