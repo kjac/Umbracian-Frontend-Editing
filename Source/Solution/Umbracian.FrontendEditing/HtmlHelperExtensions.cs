@@ -19,12 +19,11 @@ namespace Umbracian.FrontendEditing {
 			if (shouldWriteOutput)
 			{
 				htmlHelper.ViewContext.Writer.Write(@"<div class=""ufe_editable"">
-	<span class=""ufe_marker"" onclick=""ufe.EditContent('{0}');"">", propertyAlias);
+	<span class=""ufe_marker"" onclick=""ufe.EditContent('{0}');""", propertyAlias);
 				if (string.IsNullOrWhiteSpace(propertyName) == false) {
-					htmlHelper.ViewContext.Writer.Write(@"
-		<span class=""ufe_markerText""><span data-ufelocalize-text=""editable.edit"">Edit</span> {0}</span>", propertyName);
+					htmlHelper.ViewContext.Writer.Write(@" title=""Edit {0}"" data-ufelocalize-title=""editable.edit.{1}""", propertyName, propertyAlias);
 				}
-				htmlHelper.ViewContext.Writer.Write(@"
+				htmlHelper.ViewContext.Writer.Write(@">
 	</span>");				
 			}
 			return new MvcFrontendEditable(htmlHelper.ViewContext, shouldWriteOutput);

@@ -177,48 +177,38 @@ button#ufe_deletecontent:active {
   background-color: #D00;
 }
 
-.ufe_editable {
-  position: relative;
+/* yeah, it's not nice to mark everything as important, but we really really need these styles forcefully applied */
+div.ufe_editable {
+  position: relative !important;
 }
-.ufe_editable:hover {
-  transition: all 0.1s ease 0s;
+div.ufe_editable:hover {
+  transition: all 0.1s ease 0s !important;
 }
-.ufe_editable:hover {
-  box-shadow: 0 0 0 1px #AAA;
+div.ufe_editable:hover {
+  box-shadow: 0 0 0 1px #AAA !important;
 }
-.ufe_editable .ufe_marker {
-  padding: 0 4px 0 4px;
-  height: 28px;
-  display: block;
-  position: absolute;
-  z-index: 1000;
-  right: 0;
-  cursor: pointer; 
-  color: #AAA;
-  overflow: hidden;
+div.ufe_editable span.ufe_marker {
+  padding: 2px !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 1000 !important;
+  right: 0 !important;
+  cursor: pointer !important; 
+  color: #AAA !important;
+  overflow: hidden !important;
+  background-color: transparent !important;
 }
-.ufe_editable .ufe_marker:after {
+div.ufe_editable span.ufe_marker:after {
   content: "\e1c2";
-  font-family: icomoon;
-  font-size: 20px;
+  font-family: icomoon !important;
+  font-size: 20px !important;
+  line-height: 26px !important;
+  border-radius: 30% !important;
+  border: 1px solid #AAA !important;
+  padding: 2px !important;
+  background-color: white !important;
 }
 
-.ufe_editable:hover .ufe_marker {
-  color: #444;
-}
-
-.ufe_editable:hover .ufe_marker:hover {
-  color: #444;
-  background-color: rgba(255,255,255,0.8);
-}
-
-.ufe_editable .ufe_marker .ufe_markerText {
-  font-size: 100%;
-  vertical-align: top;
-  margin-top: 25px;
-  display: inline-block;
-}
-.ufe_editable:hover .ufe_marker:hover .ufe_markerText {
-  transition: all 0.1s ease 0s;
-  margin-top: 0;
+div.ufe_editable:hover span.ufe_marker:hover {
+  color: #444 !important;
 }
