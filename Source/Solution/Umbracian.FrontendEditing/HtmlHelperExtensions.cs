@@ -4,7 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
+using Umbraco.Core.Security;
+using Umbraco.Web;
 
 namespace Umbracian.FrontendEditing {
 	public static class HtmlHelperExtensions {
@@ -15,7 +18,14 @@ namespace Umbracian.FrontendEditing {
 		}
 
 		public static MvcFrontendEditable BeginFrontendEditable(this HtmlHelper htmlHelper, string propertyAlias, string propertyName = null) {
-			var shouldWriteOutput = Helper.HasSession();
+			var shouldWriteOutput = false;
+
+			if (Helper.HasSession()) {
+				if (UmbracoContext.Current.Security.CurrentUser == null) {
+					AuthenticationHelper.AuthenticateTicket();
+				}
+				shouldWriteOutput = UmbracoContext.Current.Security.CurrentUser != null;
+			}
 			if (shouldWriteOutput)
 			{
 				htmlHelper.ViewContext.Writer.Write(@"<div class=""ufe_editable"">

@@ -16,13 +16,7 @@ using Umbraco.Web.WebApi;
 namespace Umbracian.FrontendEditing.Api {
 	public class UmbracianFrontendEditingController : UmbracoApiController {
 		protected override void Initialize(HttpControllerContext controllerContext) {
-			// see http://issues.umbraco.org/issue/U4-6342#comment=67-19466 (from http://issues.umbraco.org/issue/U4-6332)
-			var http = new HttpContextWrapper(HttpContext.Current);
-			var ticket = http.GetUmbracoAuthTicket();
-			if (ticket != null) {
-				http.AuthenticateCurrentRequest(ticket, true);
-			}
-
+			AuthenticationHelper.AuthenticateTicket();
 			base.Initialize(controllerContext);
 		}
 

@@ -212,6 +212,7 @@
   <ItemGroup>
     <Compile Include="Api\EntityPermissionExtensions.cs" />
     <Compile Include="Api\UmbracianFrontendEditingController.cs" />
+    <Compile Include="AuthenticationHelper.cs" />
     <Compile Include="FormValueConverter.cs" />
     <Compile Include="FrontendEditingModel.cs" />
     <Compile Include="Helper.cs" />

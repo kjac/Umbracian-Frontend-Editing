@@ -56,7 +56,7 @@
 }
 
 #ufe_login:before {
-	content: "\e13f";
+	content: "\e13e";
 }
 
 #ufe_logout:before {
@@ -132,6 +132,10 @@
   font-family: inherit;
   font-size: inherit;
 }
+.ufe_panel input, .ufe_panel select, .ufe_panel button {
+  border: 1px solid #DDD;
+}
+
 .ufe_panel input.ufe_invalid {
   color: #F00;
 }

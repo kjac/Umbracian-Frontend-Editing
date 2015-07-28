@@ -372,6 +372,13 @@ ufe.PageLoad = function() {
     });
   });
 
+  
+  // $(".ufe_panel").keydown(function (e) {
+    // if(e.keyCode == 27) {
+      // $(".ufe_cancel", $(this)).click();
+    // }
+  // });
+  
   $(".ufe_cancel").click(function (e) {
     var panel = $(this).parent();
     if (panel.is(':visible')) {
@@ -389,15 +396,19 @@ ufe.PageLoad = function() {
     $.post("/umbraco/api/umbracianfrontendediting/login", { username: $("#ufe_username").val(), password: $("#ufe_password").val() }, function(data) {
         if (data == true) {
           // login succeeded
-          $("#ufe_username").removeClass("ufe_invalid");
-          $("#ufe_password").removeClass("ufe_invalid");
+          // - reload page to render edit markers (if any)
+          location.reload();
 
-          // hide the login panel
-          ufe.LoginPanel.fadeOut(ufe.FadeDuration, function() {
-            ufe.SetClosed();
-            // reload status
-            ufe.LoadStatus();
-          });
+          // // login succeeded
+          // $("#ufe_username").removeClass("ufe_invalid");
+          // $("#ufe_password").removeClass("ufe_invalid");
+
+          // // hide the login panel
+          // ufe.LoginPanel.fadeOut(ufe.FadeDuration, function() {
+            // ufe.SetClosed();
+            // // reload status
+            // ufe.LoadStatus();
+          // });
         }
         else {
           // login failed
@@ -456,10 +467,12 @@ document.addEventListener("DOMContentLoaded", function () {
   <a href class="ufe_control ufe_hidden" id="ufe_logout" title="Logout" data-ufelocalize-title="logout.control.title"></a> \
   <div class="ufe_panel" id="ufe_loginpanel"> \
     <p data-ufelocalize-html="login.dialog.text">Please login to start editing.</p> \
+    <form> \
     <input type="text" id="ufe_username" placeholder="Username" data-ufelocalize-placeholder="login.dialog.username.placeholder" /> \
     <input type="password" id="ufe_password" placeholder="Password" data-ufelocalize-placeholder="login.dialog.password.placeholder" /> \
     <button id="ufe_loginuser" data-ufelocalize-text="login.dialog.button.ok">Login</button> \
     <button class="ufe_cancel" data-ufelocalize-text="login.dialog.button.cancel">Cancel</button> \
+    </form> \
   </div> \
   <div class="ufe_panel" id="ufe_createpanel"> \
     <p data-ufelocalize-html="create.dialog.text">Select which kind of page you want to create:</p> \
