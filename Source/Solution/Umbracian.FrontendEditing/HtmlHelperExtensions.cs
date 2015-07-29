@@ -11,13 +11,13 @@ using Umbraco.Web;
 
 namespace Umbracian.FrontendEditing {
 	public static class HtmlHelperExtensions {
-		public static MvcFrontendEditable BeginConditionalFrontendEditable(this HtmlHelper htmlHelper, bool condition, string propertyAlias, string propertyName = null) {
+		public static MvcFrontendEditable BeginConditionalFrontendEditable(this HtmlHelper htmlHelper, bool condition, string propertyAlias, string helpText = null) {
 			return condition
-				? BeginFrontendEditable(htmlHelper, propertyAlias, propertyName)
+				? BeginFrontendEditable(htmlHelper, propertyAlias, helpText)
 				: new MvcFrontendEditable(htmlHelper.ViewContext, false);
 		}
 
-		public static MvcFrontendEditable BeginFrontendEditable(this HtmlHelper htmlHelper, string propertyAlias, string propertyName = null) {
+		public static MvcFrontendEditable BeginFrontendEditable(this HtmlHelper htmlHelper, string propertyAlias, string helpText = null) {
 			var shouldWriteOutput = false;
 
 			if (Helper.HasSession()) {
@@ -30,8 +30,8 @@ namespace Umbracian.FrontendEditing {
 			{
 				htmlHelper.ViewContext.Writer.Write(@"<div class=""ufe_editable"">
 	<span class=""ufe_marker"" onclick=""ufe.EditContent('{0}');""", propertyAlias);
-				if (string.IsNullOrWhiteSpace(propertyName) == false) {
-					htmlHelper.ViewContext.Writer.Write(@" title=""Edit {0}"" data-ufelocalize-title=""editable.edit.{1}""", propertyName, propertyAlias);
+				if (string.IsNullOrWhiteSpace(helpText) == false) {
+					htmlHelper.ViewContext.Writer.Write(@" title=""{0}"" data-ufelocalize-title=""editable.helpText.{1}""", helpText, propertyAlias);
 				}
 				htmlHelper.ViewContext.Writer.Write(@">
 	</span>");				
