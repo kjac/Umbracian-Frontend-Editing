@@ -9,7 +9,7 @@
 }
 
 .ufe_controls {
-  z-index: 2002;
+  z-index: 2004;
   position: fixed;
   left: 100%;
   top: 0px;
@@ -42,7 +42,7 @@
   display: none;
 }
 
-.ufe_control:hover, .ufe_control.ufe_open, .ufe_control.ufe_busy {
+.ufe_control:hover, .ufe_control.ufe_busy {
   color: #444;
 }
 
@@ -50,8 +50,7 @@
 .ufe_control.ufe_restricted:hover, 
 .ufe_control.ufe_disabled,
 .ufe_control.ufe_disabled:hover {
-  color: #DDD;
-  cursor: default;
+  display: none;
 }
 
 #ufe_edit:before {
@@ -76,6 +75,10 @@
 
 #ufe_delete:before {
   content: "\e032";
+}
+
+#ufe_login.ufe_open:before, #ufe_edit.ufe_open:before, #ufe_create.ufe_open:before, #ufe_unpublish.ufe_open:before, #ufe_delete.ufe_open:before, #ufe_logout.ufe_open:before {
+  content: "\e1a4";
 }
 
 #ufe_login.ufe_busy:before, #ufe_edit.ufe_busy:before, #ufe_create.ufe_busy:before, #ufe_unpublish.ufe_busy:before, #ufe_delete.ufe_busy:before, #ufe_logout.ufe_busy:before {
@@ -121,7 +124,7 @@
   border: 1px solid #AAA;
   border-top: 0;
   border-right: 0;
-  padding: 30px 8px 8px 8px;
+  padding: 34px 8px 8px 8px;
   line-height: 16px;
   font-family: 'Segoe UI',Tahoma,Arial,Helvetica,sans-serif;
   font-size: 16px;
@@ -185,7 +188,14 @@ button#ufe_deletecontent:active {
   background-color: #D00;
 }
 
-/* yeah, it's not nice to mark everything as important, but we really really need these styles forcefully applied */
+/*
+everything below here targets elements that will be blended into the rendered page.
+yeah, it's not nice to mark everything as important, but we really really need these styles forcefully applied.
+*/
+body.ufe_active::-webkit-scrollbar {
+  display: none !important;
+}
+
 div.ufe_editable {
   position: relative !important;
 }
@@ -211,7 +221,7 @@ div.ufe_editable span.ufe_marker:after {
   font-family: icomoon !important;
   font-size: 20px !important;
   line-height: 26px !important;
-  border-radius: 30% !important;
+  border-radius: 6px !important;
   border: 1px solid #AAA !important;
   padding: 2px !important;
   background-color: white !important;

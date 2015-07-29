@@ -39,6 +39,7 @@ var ufe = {
 };
 
 ufe.LoadComplete = function() {
+  this.SetPageForEditing(true);
   this.GoToProperty(this.PropertyAlias);
   this.Frame.slideDown(this.SlideDuration, function () {
     ufe.SetOpen();
@@ -81,6 +82,16 @@ ufe.SetClosed = function() {
   $(this.Controls).each(function (index, element) {
     $(element).removeClass("ufe_disabled");
   });
+}
+
+ufe.ClosePanel = function(panel) {
+  if (panel.is(':visible')) {
+    panel.fadeOut(this.FadeDuration, function() {
+      ufe.SetClosed();        
+    });
+    return true;
+  }
+  return false;
 }
 
 ufe.SetActive = function(element) {
@@ -167,6 +178,7 @@ ufe.ToggleFrame = function(element, url, propertyAlias) {
 
   // if the frame is already shown, simply hide it
   if (this.IsOpen()) {
+    this.SetPageForEditing(false);
     this.Frame.slideUp(this.SlideDuration, function () {
       ufe.SetClosed();
       ufe.SetReady();
@@ -190,6 +202,18 @@ ufe.ToggleFrame = function(element, url, propertyAlias) {
         ufe.LoadStatus();
       }
     });
+  }
+}
+
+ufe.SetPageForEditing = function(isEditing) {
+  var body = $("body");
+  var className = "ufe_active";
+  // add class to hide body scroll bars when editing, so there are no duplicate scroll bars (umbraco backend AND page content scroll bars)
+  if(isEditing) {
+    body.addClass(className);
+  }
+  else {
+    body.removeClass(className);    
   }
 }
 
@@ -271,7 +295,10 @@ ufe.PageLoad = function() {
     if (ufe.State.CanCreate == false) {
       return;
     }
-    if (ufe.CreatePanel.is(':visible') || ufe.Active.hasClass("ufe_busy") || ufe.Create.hasClass("ufe_disabled")) {
+    if (ufe.ClosePanel(ufe.CreatePanel)) {
+      return;
+    }
+    if (ufe.Active.hasClass("ufe_busy") || ufe.Create.hasClass("ufe_disabled")) {
       return;
     }
 
@@ -297,7 +324,10 @@ ufe.PageLoad = function() {
     if (ufe.State.CanDelete == false) {
       return;
     }
-    if (ufe.DeletePanel.is(':visible') || ufe.Active.hasClass("ufe_busy") || ufe.Delete.hasClass("ufe_disabled")) {
+    if (ufe.ClosePanel(ufe.DeletePanel)) {
+      return;
+    }
+    if (ufe.Active.hasClass("ufe_busy") || ufe.Delete.hasClass("ufe_disabled")) {
       return;
     }
 
@@ -312,7 +342,10 @@ ufe.PageLoad = function() {
     if (ufe.State.CanUnPublish == false) {
       return;
     }
-    if (ufe.UnPublishPanel.is(':visible') || ufe.Active.hasClass("ufe_busy") || ufe.UnPublish.hasClass("ufe_disabled")) {
+    if (ufe.ClosePanel(ufe.UnPublishPanel)) {
+      return;
+    }
+    if (ufe.Active.hasClass("ufe_busy") || ufe.UnPublish.hasClass("ufe_disabled")) {
       return;
     }
 
@@ -428,7 +461,7 @@ ufe.PageLoad = function() {
     if (ufe.State.Authenticated) {
       return;
     }
-    if (ufe.LoginPanel.is(':visible')) {
+    if (ufe.ClosePanel(ufe.LoginPanel)) {
       return;
     }
     ufe.SetActive(ufe.Login);
