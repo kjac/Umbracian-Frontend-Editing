@@ -8,30 +8,33 @@
 	font-style: normal;
 }
 
-.ufe_control {
+.ufe_controls {
   z-index: 2002;
   position: fixed;
   left: 100%;
   top: 0px;
-  margin: 4px 0 0 -30px;
-  padding: 0;
-  width: 30px;
+  margin: -1px 0 0 -36px;
+  padding: 1px 1px 0px 0px;
+  /* width: 30px; */
+  border: 1px solid #AAA;
+  border-bottom-left-radius: 6px;
+  background-color: #FFF;
+}
+
+.ufe_control {
   height: 30px;
   display: block;
   background-repeat: no-repeat;
-  /*background-color: #D47920;*/
   background-color: transparent;
-  padding: 2px;
+  padding: 4px;
   font-family: icomoon;
   font-weight: normal;
   font-style: normal;
   text-decoration: inherit;
   -webkit-font-smoothing: antialiased;
-  *margin-right: .3em;
   font-size: 26px;
   color: #AAA;
   text-decoration: inherit;
-  display: inline-block;
   speak: none;
 }
 
@@ -102,20 +105,20 @@
   left: 0px;
   top: 0px;
   display: none;
-  z-index: 2000;
+  z-index: 2001;
 }
 
 .ufe_panel {
-  z-index: 2001;
+  z-index: 2003;
   position: fixed;
   left: 100%;
   top: 0px;
-  margin: 0 0 0 -200px;
-  width: 200px;
+  margin: 0 0 0 -176px;
+  width: 180px;
   padding: 0;
   display: none;
   background-color: white;
-  border: 1px solid #DDD;
+  border: 1px solid #AAA;
   border-top: 0;
   border-right: 0;
   padding: 30px 8px 8px 8px;
@@ -123,6 +126,7 @@
   font-family: 'Segoe UI',Tahoma,Arial,Helvetica,sans-serif;
   font-size: 16px;
   color: #444;
+  border-bottom-left-radius: 6px;
 }
 .ufe_panel input, .ufe_panel select, .ufe_panel button, .ufe_panel p {
   display: block;
@@ -195,7 +199,7 @@ div.ufe_editable span.ufe_marker {
   padding: 2px !important;
   display: block !important;
   position: absolute !important;
-  z-index: 1000 !important;
+  z-index: 2000 !important;
   right: 0 !important;
   cursor: pointer !important; 
   color: #AAA !important;

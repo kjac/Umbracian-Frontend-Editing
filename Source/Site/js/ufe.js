@@ -380,7 +380,8 @@ ufe.PageLoad = function() {
   // });
   
   $(".ufe_cancel").click(function (e) {
-    var panel = $(this).parent();
+    e.preventDefault();
+    var panel = $(this).closest(".ufe_panel");
     if (panel.is(':visible')) {
       panel.fadeOut(ufe.FadeDuration, function () {
         ufe.SetClosed();
@@ -459,12 +460,14 @@ document.addEventListener("DOMContentLoaded", function () {
   // inject the required markup here so the template doesn't have to contain it
   $("body").append(
     '\
-  <a href class="ufe_control" id="ufe_login" title="Login" data-ufelocalize-title="login.control.title"></a> \
-  <a href class="ufe_control ufe_hidden" id="ufe_edit" title="Edit" data-ufelocalize-title="edit.control.title"></a> \
-  <a href class="ufe_control ufe_hidden" id="ufe_create" title="Create" data-ufelocalize-title="create.control.title"></a> \
-  <a href class="ufe_control ufe_hidden" id="ufe_unpublish" title="Unpublish" data-ufelocalize-title="unpublish.control.title"></a> \
-  <a href class="ufe_control ufe_hidden" id="ufe_delete" title="Delete" data-ufelocalize-title="delete.control.title"></a> \
-  <a href class="ufe_control ufe_hidden" id="ufe_logout" title="Logout" data-ufelocalize-title="logout.control.title"></a> \
+  <div class="ufe_controls"> \
+    <a href class="ufe_control" id="ufe_login" title="Login" data-ufelocalize-title="login.control.title"></a> \
+    <a href class="ufe_control ufe_hidden" id="ufe_edit" title="Edit" data-ufelocalize-title="edit.control.title"></a> \
+    <a href class="ufe_control ufe_hidden" id="ufe_create" title="Create" data-ufelocalize-title="create.control.title"></a> \
+    <a href class="ufe_control ufe_hidden" id="ufe_unpublish" title="Unpublish" data-ufelocalize-title="unpublish.control.title"></a> \
+    <a href class="ufe_control ufe_hidden" id="ufe_delete" title="Delete" data-ufelocalize-title="delete.control.title"></a> \
+    <a href class="ufe_control ufe_hidden" id="ufe_logout" title="Logout" data-ufelocalize-title="logout.control.title"></a> \
+  </div> \
   <div class="ufe_panel" id="ufe_loginpanel"> \
     <p data-ufelocalize-html="login.dialog.text">Please login to start editing.</p> \
     <form> \
